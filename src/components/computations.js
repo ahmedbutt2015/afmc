@@ -44,22 +44,22 @@ export default class Computations extends React.Component {
                 </View>
             </View>
             <View onPress={() => Actions.splash()} style={styles.leftContainer2}>
-                <Text style={[styles.text, {textAlign: 'left',marginLeft: 15}]}>
+                <Text style={[styles.text, {textAlign: 'left',marginLeft: 15}]} onPress={() => Actions.splash()}>
                     Platform
                 </Text>
             </View>
-            <View onPress={() => Actions.splash()} style={styles.leftContainer2}>
-                <Text style={[styles.text, {textAlign: 'left',marginLeft: 15}]}>
+            <View  style={styles.leftContainer2}>
+                <Text onPress={() => Actions.splash()} style={[styles.text, {textAlign: 'left',marginLeft: 15}]}>
                     AS332 B
                 </Text>
             </View>
             <View onPress={() => Actions.splash()}onPress={() => Actions.compute()} style={styles.leftContainer2}>
-                <Text style={[styles.text, {textAlign: 'left',marginLeft: 15}]}>
+                <Text onPress={() => Actions.splash()} style={[styles.text, {textAlign: 'left',marginLeft: 15}]}>
                     AS332 M
                 </Text>
             </View>
             <View onPress={() => Actions.splash()} style={styles.leftContainer2}>
-                <Text style={[styles.text, {textAlign: 'left',marginLeft: 15}]}>
+                <Text onPress={() => Actions.splash()} style={[styles.text, {textAlign: 'left',marginLeft: 15}]}>
                     AS365 N3
                 </Text>
             </View>
@@ -77,44 +77,18 @@ export default class Computations extends React.Component {
                 >
                     <Dialog.Title>New</Dialog.Title>
                     <Dialog.Description>
-                        <View style={{flexDirection:"column"}}>
+                        <View style={{flexDirection:"column",width:200,height:200}}>
                             <View style={{flexDirection:"row"}} style={{margin:20}}>
                                 <View style={{flexDirection:"column"}}>
-                                    <Text>Tail No.</Text>
                                     <TextInput
                                         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                                         onChangeText={text => onChangeText(text)}
                                     />
                                 </View>
                             </View>
-                            <View style={{flexDirection:"row"}}>
-                                {this.state.checked ?
-                                    <TouchableOpacity style={styles.btn} onPress={()=>{this.setState({checked: 0})}} >
-                                        <Image style={styles.img} source={require("../assets/radio1.png")}/>
-                                        <Text>Metric</Text>
-                                    </TouchableOpacity>
-                                    :
-                                    <TouchableOpacity onPress={()=>{this.setState({checked: 1})}} style={styles.btn}>
-                                        <Image style={styles.img} source={require("../assets/radio2.png")} />
-                                        <Text>Metric</Text>
-                                    </TouchableOpacity>
-                                }
-                                {!this.state.checked ?
-                                    <TouchableOpacity style={styles.btn} onPress={()=>{this.setState({checked: 1})}} >
-                                        <Image style={styles.img} source={require("../assets/radio1.png")}/>
-                                        <Text>Imperial</Text>
-                                    </TouchableOpacity>
-                                    :
-                                    <TouchableOpacity onPress={()=>{this.setState({checked: 0})}} style={styles.btn}>
-                                        <Image style={styles.img} source={require("../assets/radio2.png")} />
-                                        <Text>Imperial</Text>
-                                    </TouchableOpacity>
-                                }
-                            </View>
                             <View style={{flexDirection:"row"}} style={{margin:20}}>
                                 <View style={{flexDirection:"column"}}>
 
-                                    <Text>Basic Empty Weight</Text>
                                     <TextInput
                                         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                                         onChangeText={text => onChangeText(text)}
@@ -125,7 +99,7 @@ export default class Computations extends React.Component {
                         </View>
                     </Dialog.Description>
                     <Dialog.Button label="Cancel" onPress={this.handleCancel} />
-                    <Dialog.Button label="OK" onPress={this.handleConfirm} />
+                    <Dialog.Button label="OK" onPress={this.handleCancel} />
                 </Dialog.Container>
             </View>
 
